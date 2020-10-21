@@ -3,9 +3,9 @@ pipeline {
     agent any
 
     triggers {
-        pollSCM '* * * * *'
+        cron('* * * * *')
     }
-    
+
     environment {
       AWS_ACCESS_KEY_ID = credentials('awsAccessKeyId')
       AWS_SECRET_ACCESS_KEY = credentials('awsSecretAccessKey')
