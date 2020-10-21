@@ -56,7 +56,7 @@ pipeline {
                   mail  to: 'frontalnh@gmail.com',
                         subject: "Deploy Frontend Success",
                         body: "Successfully deployed frontend!"
-                  }
+                  
               }
               failure {
                   echo 'I failed :('
@@ -64,7 +64,7 @@ pipeline {
                   mail  to: 'frontalnh@gmail.com',
                         subject: "Failed Pipelinee",
                         body: "Something is wrong with deploy frontend"
-                }
+              }
           }
         }
         
@@ -146,5 +146,5 @@ pipeline {
             }
           }
         }
-    }
+    
 }
