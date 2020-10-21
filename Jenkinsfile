@@ -111,9 +111,9 @@ pipeline {
             echo 'Build Backend'
 
             dir ('./server'){
-                sh '''
-                docker build . -t server
-                '''
+                sh """
+                docker build . -t server --build-arg env=${PROD}
+                """
             }
           }
 
