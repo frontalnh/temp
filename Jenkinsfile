@@ -69,6 +69,7 @@ pipeline {
               '''
               dir ('./server'){
                   sh '''
+                  npm install
                   npm run lint
                   '''
               }
@@ -86,6 +87,7 @@ pipeline {
 
             dir ('./server'){
                 sh '''
+                npm install
                 npm run test
                 '''
             }
