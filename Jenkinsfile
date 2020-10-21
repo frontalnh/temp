@@ -124,28 +124,28 @@ pipeline {
           }
         }
         
-        // stage('Deploy Backend') {
-        //   agent any
+        stage('Deploy Backend') {
+          agent any
 
-        //   steps {
-        //     echo 'Build Backend'
+          steps {
+            echo 'Build Backend'
 
-        //     dir ('./server'){
-        //         sh '''
-        //         docker rm -f $(docker ps -aq)
-        //         docker run -p 80:80 -d server
-        //         '''
-        //     }
-        //   }
+            dir ('./server'){
+                sh '''
+                docker rm -f $(docker ps -aq)
+                docker run -p 80:80 -d server
+                '''
+            }
+          }
 
-        //   post {
-        //     success {
-        //       mail  to: 'frontalnh@gmail.com',
-        //             subject: "Deploy Success",
-        //             body: "Successfully deployed!"
+          post {
+            success {
+              mail  to: 'frontalnh@gmail.com',
+                    subject: "Deploy Success",
+                    body: "Successfully deployed!"
                   
-        //     }
-        //   }
-        // }
-    
+            }
+          }
+        }
+    }
 }
