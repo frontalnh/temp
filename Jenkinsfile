@@ -41,6 +41,20 @@ pipeline {
                 '''
             }
           }
+
+          post {
+              // If Maven was able to run the tests, even if some of the test
+              // failed, record the test results and archive the jar file.
+              success {
+                  echo 'Successfully Cloned Repository'
+              }
+              failure {
+                  echo 'I failed :('
+                  mail  to: 'team@example.com',
+                        subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+                        body: "Something is wrong with ${env.BUILD_URL}"
+                  }
+          }
         }
         
         stage('Lint Backend') {
@@ -87,6 +101,12 @@ pipeline {
                 sh '''
                 docker build . -t server
                 '''
+            }
+          }
+
+          post {
+            failure {
+              error 'This pipeline stops here...'
             }
           }
         }
