@@ -2,6 +2,10 @@ pipeline {
     // 스테이지 별로 다른 거
     agent any
 
+    triggers {
+        pollSCM '* * * * *'
+    }
+    
     environment {
       AWS_ACCESS_KEY_ID = credentials('awsAccessKeyId')
       AWS_SECRET_ACCESS_KEY = credentials('awsSecretAccessKey')
