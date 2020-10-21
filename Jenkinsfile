@@ -60,7 +60,7 @@ pipeline {
               }
               failure {
                   echo 'I failed :('
-                  
+
                   mail  to: 'frontalnh@gmail.com',
                         subject: "Failed Pipelinee",
                         body: "Something is wrong with deploy frontend"
@@ -142,7 +142,7 @@ pipeline {
                   mail  to: 'frontalnh@gmail.com',
                         subject: "Deploy Success",
                         body: "Successfully deployed!"
-                  }
+                  
             }
           }
         }
