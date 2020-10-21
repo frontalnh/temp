@@ -125,7 +125,7 @@ pipeline {
 
             dir ('./server'){
                 sh '''
-                docker run -p 80:80 server
+                docker run -p 80:80 -d server
                 '''
             }
           }
