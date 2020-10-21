@@ -51,7 +51,7 @@ pipeline {
               failure {
                   echo 'I failed :('
                   mail  to: 'frontalnh@gmail.com',
-                        subject: "Failed Pipeline",
+                        subject: "Failed Pipelinee",
                         body: "Something is wrong with deploy frontend"
                   }
           }
