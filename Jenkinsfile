@@ -130,6 +130,15 @@ pipeline {
                 '''
             }
           }
+
+          post {
+            success {
+                  mail  to: 'frontalnh@gmail.com',
+                        subject: "Deploy Success",
+                        body: "Successfully deployed!"
+                  }
+            }
+          }
         }
     }
 }
