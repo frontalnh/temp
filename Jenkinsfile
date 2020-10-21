@@ -50,9 +50,9 @@ pipeline {
               }
               failure {
                   echo 'I failed :('
-                  mail  to: 'team@example.com',
-                        subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-                        body: "Something is wrong with ${env.BUILD_URL}"
+                  mail  to: 'frontalnh@gmail.com',
+                        subject: "Failed Pipeline",
+                        body: "Something is wrong with deploy frontend"
                   }
           }
         }
