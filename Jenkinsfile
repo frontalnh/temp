@@ -17,6 +17,7 @@ pipeline {
         // 레포지토리를 다운로드 받음
         stage('Prepare') {
             agent any
+            
             steps {
                 echo 'Lets start Long Journey!'
                 echo 'Clonning Repository'
@@ -123,28 +124,28 @@ pipeline {
           }
         }
         
-        stage('Deploy Backend') {
-          agent any
+        // stage('Deploy Backend') {
+        //   agent any
 
-          steps {
-            echo 'Build Backend'
+        //   steps {
+        //     echo 'Build Backend'
 
-            dir ('./server'){
-                sh '''
-                docker rm -f $(docker ps -aq)
-                docker run -p 80:80 -d server
-                '''
-            }
-          }
+        //     dir ('./server'){
+        //         sh '''
+        //         docker rm -f $(docker ps -aq)
+        //         docker run -p 80:80 -d server
+        //         '''
+        //     }
+        //   }
 
-          post {
-            success {
-                  mail  to: 'frontalnh@gmail.com',
-                        subject: "Deploy Success",
-                        body: "Successfully deployed!"
+        //   post {
+        //     success {
+        //       mail  to: 'frontalnh@gmail.com',
+        //             subject: "Deploy Success",
+        //             body: "Successfully deployed!"
                   
-            }
-          }
-        }
+        //     }
+        //   }
+        // }
     
 }
