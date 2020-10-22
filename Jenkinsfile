@@ -19,7 +19,6 @@ pipeline {
             agent any
             
             steps {
-                echo "Lets start Long Journey! ENV: ${ENV}"
                 echo 'Clonning Repository'
 
                 git url: 'https://github.com/frontalnh/temp.git',
