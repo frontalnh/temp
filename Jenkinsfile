@@ -33,6 +33,14 @@ pipeline {
                 success {
                     echo 'Successfully Cloned Repository'
                 }
+
+                always {
+                  echo "i tried..."
+                }
+
+                cleanup {
+                  echo "after all other post condition"
+                }
             }
         }
         
@@ -57,8 +65,9 @@ pipeline {
                   mail  to: 'frontalnh@gmail.com',
                         subject: "Deploy Frontend Success",
                         body: "Successfully deployed frontend!"
-                  
+
               }
+
               failure {
                   echo 'I failed :('
 
